@@ -42,9 +42,8 @@ function Signup() {
 
   if (cart) {
     const data = JSON.parse(cart);
-
-    if (Array.isArray(data) && data.length > 0) {
-      preSignupCourseId = parseInt(data[0].courseID, 10);
+    if (Array.isArray(data) && data.length > 0 && data[0].courseID) {
+      preSignupCourseId = Number(data[0].courseID);
     } else if (data && data.courseID) {
       preSignupCourseId = parseInt(data.courseID, 10);
     }
@@ -59,7 +58,6 @@ function Signup() {
   };
 
   const handleSubmit = async (e) => {
-    localStorage.clear();
     e.preventDefault();
     if (signupState.password !== signupState.passwordagain) {
       setPasswordError("Please enter the same password.");
@@ -78,6 +76,7 @@ function Signup() {
     setCaptchaError("");
     setIsLoading(true);
     await createAccount();
+    localStorage.clear();
   };
 
   const createAccount = async () => {

@@ -18,7 +18,7 @@ const SingleTrainingDetail = () => {
   const { addToCart } = useCartContext();
   const [loading, setLoading] = useState(true);
   const [selectedPricings, setSelectedPricings] = useState([]);
-  const [openInfoId, setOpenInfoId] = useState(null);
+  // const [openInfoId, setOpenInfoId] = useState(null);
   const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
@@ -346,7 +346,7 @@ const SingleTrainingDetail = () => {
                   (p) => p.id === pricing.id
                 );
 
-                const isInfoOpen = openInfoId === pricing.id;
+                // const isInfoOpen = openInfoId === pricing.id;
 
                 return (
                   <div
@@ -365,7 +365,7 @@ const SingleTrainingDetail = () => {
                         </span>
                       </div>
 
-                      <button
+                      {/* <button
                         type="button"
                         onClick={(e) => {
                           e.stopPropagation();
@@ -374,10 +374,10 @@ const SingleTrainingDetail = () => {
                         className="w-5 h-5 flex items-center justify-center rounded-full border text-blue-600 text-xs font-bold hover:bg-blue-50"
                       >
                         i
-                      </button>
+                      </button> */}
                     </label>
 
-                    <div
+                    {/* <div
                       className={`transition-all duration-300 ease-in-out ${
                         isInfoOpen
                           ? "max-h-96 opacity-100"
@@ -393,7 +393,7 @@ const SingleTrainingDetail = () => {
                         <li>Add/Edit attendees from My Account</li>
                         <li>Certificate of Participation provided</li>
                       </ul>
-                    </div>
+                    </div> */}
                   </div>
                 );
               })}
@@ -448,7 +448,7 @@ const SingleTrainingDetail = () => {
 
             <div>
               <h3 className="font-semibold text-center text-blue-700 text-lg mb-3 border border-blue-300 bg-[#f9f9f9] px-2 py-1">
-                Recorded Option
+                On-Demand
               </h3>
 
               {Pricings?.filter(
